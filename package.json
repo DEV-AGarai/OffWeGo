@@ -1,0 +1,15 @@
+{
+  "name": "offwego",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n frontend,backend -c cyan,green \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "cd backend && venv\\Scripts\\python.exe -m uvicorn app.main:app --reload",
+    "build": "npm run build --prefix frontend",
+    "install:all": "npm install && npm install --prefix frontend && cd backend && venv\\Scripts\\python.exe -m pip install -r requirements.txt"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
